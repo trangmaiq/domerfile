@@ -26,7 +26,8 @@ COPY --from=server-builder /app/server/dist ./server/dist
 COPY --from=server-builder /app/server/package*.json ./server/
 COPY --from=server-builder /app/server/scripts ./server/scripts
 COPY db/ ./db/
-EXPOSE ${PORT}
+EXPOSE 3000
+ENV PORT 3000
 WORKDIR /app/server
 ENTRYPOINT ["npm", "run", "start-production"]
 
